@@ -50,3 +50,4 @@ MANIFEST
 .venv*/
 
 app.db
+.flaskenv

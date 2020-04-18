@@ -28,4 +28,4 @@ moment = Moment(app)
 babel = Babel(app)
 
 
-from app import routes, models, errors, setup_logging, translation
+from app import routes, models, errors, setup_logging, localization
