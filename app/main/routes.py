@@ -146,3 +146,13 @@ def search():
         if page > 1 else None
 
     return render_template('search.html', title=_('Search'), posts=posts, next_url=next_url, prev_url=prev_url)
+
+
+@bp.route('/remove_post/<post_id>', methods=['POST'])
+@login_required
+def remove_post(post_id):
+    flash(_(f'Removed post {post_id}! '))
+    Post.query.filter_by(id=post_id).delete()
+    db.session.commit()
+    redirect_to = request.referrer or url_for('main.index')
+    return redirect(redirect_to)

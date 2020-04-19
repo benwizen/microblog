@@ -25,7 +25,18 @@
                         {{ _('Translate') }}
                     </a>
                 </span>
+                <br>
+                {% else %}
+                    <br>
                 {% endif %}
+            {% if current_user.id == post.user_id %}
+                <br>
+                <span>
+                    <form action={{ url_for('main.remove_post', post_id=post.id)}} method='post'>
+                    <button class="btn btn-danger btn-sm" type="submit">Remove post</button>
+                </form>
+                </span>
+            {% endif %}
             </td>
         </tr>
 
